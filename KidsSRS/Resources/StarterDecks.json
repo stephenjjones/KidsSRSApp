@@ -1,0 +1,29 @@
+[
+  {
+    "id": "DECC0001-0000-0000-0000-000000000001",
+    "title": "Spanish — Animals",
+    "subjectTag": "spanish",
+    "version": 1,
+    "cards": [
+      { "id": "CA8D0001-0000-0000-0000-000000000001", "front": "el gato", "back": "the cat", "hint": "a feline" },
+      { "id": "CA8D0001-0000-0000-0000-000000000002", "front": "el perro", "back": "the dog", "hint": null },
+      { "id": "CA8D0001-0000-0000-0000-000000000003", "front": "el pájaro", "back": "the bird", "hint": null },
+      { "id": "CA8D0001-0000-0000-0000-000000000004", "front": "el pez", "back": "the fish", "hint": null },
+      { "id": "CA8D0001-0000-0000-0000-000000000005", "front": "el caballo", "back": "the horse", "hint": null }
+    ]
+  },
+  {
+    "id": "DECC0002-0000-0000-0000-000000000002",
+    "title": "Multiplication ×3",
+    "subjectTag": "math",
+    "version": 1,
+    "cards": [
+      { "id": "CA8D0002-0000-0000-0000-000000000001", "front": "3 × 1", "back": "3", "hint": null },
+      { "id": "CA8D0002-0000-0000-0000-000000000002", "front": "3 × 2", "back": "6", "hint": null },
+      { "id": "CA8D0002-0000-0000-0000-000000000003", "front": "3 × 3", "back": "9", "hint": null },
+      { "id": "CA8D0002-0000-0000-0000-000000000004", "front": "3 × 4", "back": "12", "hint": null },
+      { "id": "CA8D0002-0000-0000-0000-000000000005", "front": "3 × 5", "back": "15", "hint": null },
+      { "id": "CA8D0002-0000-0000-0000-000000000006", "front": "3 × 6", "back": "18", "hint": null }
+    ]
+  }
+]

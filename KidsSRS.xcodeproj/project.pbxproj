@@ -1,0 +1,774 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A0000000000000000000001 /* KidsSRSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000001 /* KidsSRSApp.swift */; };
+		3A0000000000000000000002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000002 /* AppState.swift */; };
+		3A0000000000000000000003 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000003 /* PersistenceController.swift */; };
+		3A0000000000000000000004 /* StudyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000004 /* StudyViewModel.swift */; };
+		3A0000000000000000000005 /* StudySessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000005 /* StudySessionView.swift */; };
+		3A0000000000000000000006 /* ProfilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000006 /* ProfilePickerView.swift */; };
+		3A0000000000000000000007 /* AdultGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000007 /* AdultGateView.swift */; };
+		3A0000000000000000000008 /* ParentDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000008 /* ParentDashboardView.swift */; };
+		3A000000000000000000000A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000B /* Model.xcdatamodeld */; };
+		3A000000000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000A /* Assets.xcassets */; };
+		3A000000000000000000000C /* KidsSRSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0000000000000000000002 /* KidsSRSCore */; };
+		3A0000000000000000000010 /* DeckRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000010 /* DeckRepository.swift */; };
+		3A0000000000000000000011 /* DeckEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000011 /* DeckEditorViewModel.swift */; };
+		3A0000000000000000000012 /* DeckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000012 /* DeckListView.swift */; };
+		3A0000000000000000000013 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000013 /* DeckDetailView.swift */; };
+		3A0000000000000000000014 /* CardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000014 /* CardFormView.swift */; };
+		3A0000000000000000000015 /* DeckRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000015 /* DeckRepositoryTests.swift */; };
+		3A0000000000000000000017 /* ChildRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000017 /* ChildRepository.swift */; };
+		3A0000000000000000000018 /* ChildrenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000018 /* ChildrenViewModel.swift */; };
+		3A0000000000000000000019 /* ChildDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000019 /* ChildDetailView.swift */; };
+		3A000000000000000000001A /* ProfilePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000001A /* ProfilePickerViewModel.swift */; };
+		3A000000000000000000001B /* ChildRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000001B /* ChildRepositoryTests.swift */; };
+		3A000000000000000000001C /* CoreDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000001C /* CoreDataFetch.swift */; };
+		3A000000000000000000001D /* AssignDecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000001D /* AssignDecksView.swift */; };
+		3A000000000000000000001E /* StudyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000001E /* StudyRepository.swift */; };
+		3A000000000000000000001F /* StudyRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000001F /* StudyRepositoryTests.swift */; };
+		3A0000000000000000000020 /* CardStateMergePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000020 /* CardStateMergePolicy.swift */; };
+		3A0000000000000000000021 /* CardStateMergePolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000021 /* CardStateMergePolicyTests.swift */; };
+		3A0000000000000000000022 /* DashboardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000022 /* DashboardRepository.swift */; };
+		3A0000000000000000000023 /* ChildProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000023 /* ChildProgressView.swift */; };
+		3A0000000000000000000024 /* DashboardRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000024 /* DashboardRepositoryTests.swift */; };
+		3A0000000000000000000025 /* SpeechReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000025 /* SpeechReader.swift */; };
+		3A0000000000000000000026 /* RewardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000026 /* RewardRepository.swift */; };
+		3A0000000000000000000027 /* RewardRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000027 /* RewardRepositoryTests.swift */; };
+		3A0000000000000000000028 /* StarterDecks.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000028 /* StarterDecks.json */; };
+		3A0000000000000000000029 /* StarterDeckImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000029 /* StarterDeckImporter.swift */; };
+		3A000000000000000000002A /* StarterDeckImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002A /* StarterDeckImportTests.swift */; };
+		3A000000000000000000002B /* ReminderScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002B /* ReminderScheduler.swift */; };
+		3A000000000000000000002C /* ReminderPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002C /* ReminderPlannerTests.swift */; };
+		3A000000000000000000002D /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002D /* YouTubePlayerView.swift */; };
+		3A000000000000000000002E /* SongReviewViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002E /* SongReviewViewModels.swift */; };
+		3A000000000000000000002F /* SongPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002F /* SongPlaylistView.swift */; };
+		3A0000000000000000000030 /* SongReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000030 /* SongReviewView.swift */; };
+		3A0000000000000000000031 /* LocalPlayerServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000031 /* LocalPlayerServer.swift */; };
+		3A0000000000000000000032 /* GameModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000032 /* GameModeViewModel.swift */; };
+		3A0000000000000000000033 /* GameModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000033 /* GameModeView.swift */; };
+		3A0000000000000000000034 /* ImportPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000034 /* ImportPlaylistView.swift */; };
+		3A0000000000000000000035 /* RewardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000035 /* RewardCollectionView.swift */; };
+		3A0000000000000000000036 /* SmartSongReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000036 /* SmartSongReviewView.swift */; };
+		3A0000000000000000000037 /* AdultGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000037 /* AdultGate.swift */; };
+		3A0000000000000000000038 /* AdultGateSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000038 /* AdultGateSettingsView.swift */; };
+		3A0000000000000000000039 /* AdultGateStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000039 /* AdultGateStoreTests.swift */; };
+		3A000000000000000000003A /* VideoConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000003A /* VideoConsent.swift */; };
+		3A000000000000000000003B /* VideoConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000003B /* VideoConsentView.swift */; };
+		3A000000000000000000003C /* VideoConsentStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000003C /* VideoConsentStoreTests.swift */; };
+		3A000000000000000000003D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000003D /* PrivacyInfo.xcprivacy */; };
+		3A000000000000000000003E /* PersistenceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000003E /* PersistenceControllerTests.swift */; };
+		3A000000000000000000003F /* DyslexiaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000003F /* DyslexiaText.swift */; };
+		3A0000000000000000000040 /* DyslexiaFontProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000040 /* DyslexiaFontProviderTests.swift */; };
+		3A0000000000000000000044 /* RemoteChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000044 /* RemoteChangeObserver.swift */; };
+		3A0000000000000000000045 /* RemoteChangeObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000045 /* RemoteChangeObserverTests.swift */; };
+		3A0000000000000000000046 /* CloudKitSyncMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000046 /* CloudKitSyncMonitor.swift */; };
+		3A0000000000000000000047 /* CloudKitSyncMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000047 /* CloudKitSyncMonitorTests.swift */; };
+		3A0000000000000000000041 /* OpenDyslexic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000041 /* OpenDyslexic-Regular.otf */; };
+		3A0000000000000000000042 /* OpenDyslexic-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000042 /* OpenDyslexic-Bold.otf */; };
+		3A0000000000000000000043 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000043 /* OFL.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A0000000000000000000014 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A0000000000000000000001;
+			remoteInfo = KidsSRS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A0000000000000000000001 /* KidsSRSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsSRSApp.swift; sourceTree = "<group>"; };
+		2A0000000000000000000002 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2A0000000000000000000003 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		2A0000000000000000000004 /* StudyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModel.swift; sourceTree = "<group>"; };
+		2A0000000000000000000005 /* StudySessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySessionView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000006 /* ProfilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePickerView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000007 /* AdultGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdultGateView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000008 /* ParentDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentDashboardView.swift; sourceTree = "<group>"; };
+		2A000000000000000000000A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A000000000000000000000C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2A000000000000000000000D /* KidsSRS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsSRS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0000000000000000000010 /* DeckRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepository.swift; sourceTree = "<group>"; };
+		2A0000000000000000000011 /* DeckEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditorViewModel.swift; sourceTree = "<group>"; };
+		2A0000000000000000000012 /* DeckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000013 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000014 /* CardFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFormView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000015 /* DeckRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckRepositoryTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000016 /* KidsSRSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsSRSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0000000000000000000017 /* ChildRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildRepository.swift; sourceTree = "<group>"; };
+		2A0000000000000000000018 /* ChildrenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenViewModel.swift; sourceTree = "<group>"; };
+		2A0000000000000000000019 /* ChildDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDetailView.swift; sourceTree = "<group>"; };
+		2A000000000000000000001A /* ProfilePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePickerViewModel.swift; sourceTree = "<group>"; };
+		2A000000000000000000001B /* ChildRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildRepositoryTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000001C /* CoreDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFetch.swift; sourceTree = "<group>"; };
+		2A000000000000000000001D /* AssignDecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignDecksView.swift; sourceTree = "<group>"; };
+		2A000000000000000000001E /* StudyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRepository.swift; sourceTree = "<group>"; };
+		2A000000000000000000001F /* StudyRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRepositoryTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000020 /* CardStateMergePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStateMergePolicy.swift; sourceTree = "<group>"; };
+		2A0000000000000000000021 /* CardStateMergePolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStateMergePolicyTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000022 /* DashboardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRepository.swift; sourceTree = "<group>"; };
+		2A0000000000000000000023 /* ChildProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildProgressView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000024 /* DashboardRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRepositoryTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000025 /* SpeechReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechReader.swift; sourceTree = "<group>"; };
+		2A0000000000000000000026 /* RewardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardRepository.swift; sourceTree = "<group>"; };
+		2A0000000000000000000027 /* RewardRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardRepositoryTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000028 /* StarterDecks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StarterDecks.json; sourceTree = "<group>"; };
+		2A0000000000000000000029 /* StarterDeckImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDeckImporter.swift; sourceTree = "<group>"; };
+		2A000000000000000000002A /* StarterDeckImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterDeckImportTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000002B /* ReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderScheduler.swift; sourceTree = "<group>"; };
+		2A000000000000000000002C /* ReminderPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPlannerTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000002D /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
+		2A000000000000000000002E /* SongReviewViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewViewModels.swift; sourceTree = "<group>"; };
+		2A000000000000000000002F /* SongPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlaylistView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000030 /* SongReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000031 /* LocalPlayerServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayerServer.swift; sourceTree = "<group>"; };
+		2A0000000000000000000032 /* GameModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeViewModel.swift; sourceTree = "<group>"; };
+		2A0000000000000000000033 /* GameModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000034 /* ImportPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPlaylistView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000035 /* RewardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCollectionView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000036 /* SmartSongReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSongReviewView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000037 /* AdultGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdultGate.swift; sourceTree = "<group>"; };
+		2A0000000000000000000038 /* AdultGateSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdultGateSettingsView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000039 /* AdultGateStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdultGateStoreTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000003A /* VideoConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConsent.swift; sourceTree = "<group>"; };
+		2A000000000000000000003B /* VideoConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConsentView.swift; sourceTree = "<group>"; };
+		2A000000000000000000003C /* VideoConsentStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConsentStoreTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000003D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2A000000000000000000003E /* PersistenceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceControllerTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000003F /* DyslexiaText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyslexiaText.swift; sourceTree = "<group>"; };
+		2A0000000000000000000040 /* DyslexiaFontProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyslexiaFontProviderTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000044 /* RemoteChangeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteChangeObserver.swift; sourceTree = "<group>"; };
+		2A0000000000000000000045 /* RemoteChangeObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteChangeObserverTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000046 /* CloudKitSyncMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncMonitor.swift; sourceTree = "<group>"; };
+		2A0000000000000000000047 /* CloudKitSyncMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncMonitorTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000041 /* OpenDyslexic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Regular.otf"; sourceTree = "<group>"; };
+		2A0000000000000000000042 /* OpenDyslexic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Bold.otf"; sourceTree = "<group>"; };
+		2A0000000000000000000043 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		DC999FB72FD8AAC600D8DE25 /* KidsSRS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KidsSRS.entitlements; sourceTree = "<group>"; };
+		DC999FB82FD8AB4300D8DE25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A0000000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A000000000000000000000C /* KidsSRSCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A0000000000000000000012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A0000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				1A0000000000000000000004 /* KidsSRS */,
+				1A000000000000000000000B /* KidsSRSTests */,
+				1A0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A000000000000000000000D /* KidsSRS.app */,
+				2A0000000000000000000016 /* KidsSRSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000004 /* KidsSRS */ = {
+			isa = PBXGroup;
+			children = (
+				DC999FB82FD8AB4300D8DE25 /* Info.plist */,
+				DC999FB72FD8AAC600D8DE25 /* KidsSRS.entitlements */,
+				1A0000000000000000000005 /* App */,
+				1A0000000000000000000006 /* Persistence */,
+				1A0000000000000000000007 /* Study */,
+				1A0000000000000000000008 /* ParentZone */,
+				1A0000000000000000000009 /* Rewards */,
+				1A000000000000000000000C /* Reminders */,
+				1A000000000000000000000D /* SongReview */,
+				1A000000000000000000000E /* GameMode */,
+				1A000000000000000000000F /* Accessibility */,
+				2A000000000000000000000B /* Model.xcdatamodeld */,
+				1A000000000000000000000A /* Resources */,
+			);
+			path = KidsSRS;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000005 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000001 /* KidsSRSApp.swift */,
+				2A0000000000000000000002 /* AppState.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000006 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000003 /* PersistenceController.swift */,
+				2A0000000000000000000010 /* DeckRepository.swift */,
+				2A0000000000000000000017 /* ChildRepository.swift */,
+				2A000000000000000000001C /* CoreDataFetch.swift */,
+				2A000000000000000000001E /* StudyRepository.swift */,
+				2A0000000000000000000044 /* RemoteChangeObserver.swift */,
+				2A0000000000000000000046 /* CloudKitSyncMonitor.swift */,
+				2A0000000000000000000020 /* CardStateMergePolicy.swift */,
+				2A0000000000000000000022 /* DashboardRepository.swift */,
+				2A0000000000000000000026 /* RewardRepository.swift */,
+				2A0000000000000000000029 /* StarterDeckImporter.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000007 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000004 /* StudyViewModel.swift */,
+				2A0000000000000000000005 /* StudySessionView.swift */,
+				2A0000000000000000000006 /* ProfilePickerView.swift */,
+				2A000000000000000000001A /* ProfilePickerViewModel.swift */,
+				2A0000000000000000000025 /* SpeechReader.swift */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000008 /* ParentZone */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000007 /* AdultGateView.swift */,
+				2A0000000000000000000037 /* AdultGate.swift */,
+				2A0000000000000000000038 /* AdultGateSettingsView.swift */,
+				2A0000000000000000000008 /* ParentDashboardView.swift */,
+				2A0000000000000000000011 /* DeckEditorViewModel.swift */,
+				2A0000000000000000000012 /* DeckListView.swift */,
+				2A0000000000000000000013 /* DeckDetailView.swift */,
+				2A0000000000000000000014 /* CardFormView.swift */,
+				2A0000000000000000000018 /* ChildrenViewModel.swift */,
+				2A0000000000000000000019 /* ChildDetailView.swift */,
+				2A000000000000000000001D /* AssignDecksView.swift */,
+				2A0000000000000000000023 /* ChildProgressView.swift */,
+			);
+			path = ParentZone;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000009 /* Rewards */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000035 /* RewardCollectionView.swift */,
+			);
+			path = Rewards;
+			sourceTree = "<group>";
+		};
+		1A000000000000000000000A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A000000000000000000000A /* Assets.xcassets */,
+				2A0000000000000000000028 /* StarterDecks.json */,
+				2A000000000000000000003D /* PrivacyInfo.xcprivacy */,
+				1A0000000000000000000010 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1A000000000000000000000B /* KidsSRSTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000015 /* DeckRepositoryTests.swift */,
+				2A000000000000000000001B /* ChildRepositoryTests.swift */,
+				2A000000000000000000001F /* StudyRepositoryTests.swift */,
+				2A0000000000000000000021 /* CardStateMergePolicyTests.swift */,
+				2A0000000000000000000024 /* DashboardRepositoryTests.swift */,
+				2A0000000000000000000027 /* RewardRepositoryTests.swift */,
+				2A000000000000000000002A /* StarterDeckImportTests.swift */,
+				2A000000000000000000002C /* ReminderPlannerTests.swift */,
+				2A0000000000000000000039 /* AdultGateStoreTests.swift */,
+				2A000000000000000000003C /* VideoConsentStoreTests.swift */,
+				2A000000000000000000003E /* PersistenceControllerTests.swift */,
+				2A0000000000000000000040 /* DyslexiaFontProviderTests.swift */,
+				2A0000000000000000000045 /* RemoteChangeObserverTests.swift */,
+				2A0000000000000000000047 /* CloudKitSyncMonitorTests.swift */,
+			);
+			path = KidsSRSTests;
+			sourceTree = "<group>";
+		};
+		1A000000000000000000000C /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				2A000000000000000000002B /* ReminderScheduler.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		1A000000000000000000000D /* SongReview */ = {
+			isa = PBXGroup;
+			children = (
+				2A000000000000000000002D /* YouTubePlayerView.swift */,
+				2A000000000000000000002E /* SongReviewViewModels.swift */,
+				2A000000000000000000002F /* SongPlaylistView.swift */,
+				2A0000000000000000000030 /* SongReviewView.swift */,
+				2A000000000000000000003A /* VideoConsent.swift */,
+				2A000000000000000000003B /* VideoConsentView.swift */,
+				2A0000000000000000000031 /* LocalPlayerServer.swift */,
+				2A0000000000000000000034 /* ImportPlaylistView.swift */,
+				2A0000000000000000000036 /* SmartSongReviewView.swift */,
+			);
+			path = SongReview;
+			sourceTree = "<group>";
+		};
+		1A000000000000000000000E /* GameMode */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000032 /* GameModeViewModel.swift */,
+				2A0000000000000000000033 /* GameModeView.swift */,
+			);
+			path = GameMode;
+			sourceTree = "<group>";
+		};
+		1A000000000000000000000F /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				2A000000000000000000003F /* DyslexiaText.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000010 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000041 /* OpenDyslexic-Regular.otf */,
+				2A0000000000000000000042 /* OpenDyslexic-Bold.otf */,
+				2A0000000000000000000043 /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A0000000000000000000001 /* KidsSRS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0000000000000000000002 /* Build configuration list for PBXNativeTarget "KidsSRS" */;
+			buildPhases = (
+				4A0000000000000000000002 /* Sources */,
+				4A0000000000000000000003 /* Frameworks */,
+				4A0000000000000000000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KidsSRS;
+			packageProductDependencies = (
+				6A0000000000000000000002 /* KidsSRSCore */,
+			);
+			productName = KidsSRS;
+			productReference = 2A000000000000000000000D /* KidsSRS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A0000000000000000000010 /* KidsSRSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0000000000000000000007 /* Build configuration list for PBXNativeTarget "KidsSRSTests" */;
+			buildPhases = (
+				4A0000000000000000000011 /* Sources */,
+				4A0000000000000000000012 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A0000000000000000000013 /* PBXTargetDependency */,
+			);
+			name = KidsSRSTests;
+			productName = KidsSRSTests;
+			productReference = 2A0000000000000000000016 /* KidsSRSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					4A0000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					4A0000000000000000000010 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 4A0000000000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = 5A0000000000000000000001 /* Build configuration list for PBXProject "KidsSRS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A0000000000000000000002;
+			packageReferences = (
+				6A0000000000000000000001 /* XCLocalSwiftPackageReference "KidsSRSCore" */,
+			);
+			productRefGroup = 1A0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A0000000000000000000001 /* KidsSRS */,
+				4A0000000000000000000010 /* KidsSRSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A0000000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A000000000000000000000B /* Assets.xcassets in Resources */,
+				3A0000000000000000000028 /* StarterDecks.json in Resources */,
+				3A000000000000000000003D /* PrivacyInfo.xcprivacy in Resources */,
+				3A0000000000000000000041 /* OpenDyslexic-Regular.otf in Resources */,
+				3A0000000000000000000042 /* OpenDyslexic-Bold.otf in Resources */,
+				3A0000000000000000000043 /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A0000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0000000000000000000005 /* StudySessionView.swift in Sources */,
+				3A0000000000000000000004 /* StudyViewModel.swift in Sources */,
+				3A0000000000000000000001 /* KidsSRSApp.swift in Sources */,
+				3A0000000000000000000002 /* AppState.swift in Sources */,
+				3A0000000000000000000003 /* PersistenceController.swift in Sources */,
+				3A0000000000000000000006 /* ProfilePickerView.swift in Sources */,
+				3A0000000000000000000007 /* AdultGateView.swift in Sources */,
+				3A0000000000000000000037 /* AdultGate.swift in Sources */,
+				3A0000000000000000000038 /* AdultGateSettingsView.swift in Sources */,
+				3A0000000000000000000008 /* ParentDashboardView.swift in Sources */,
+				3A000000000000000000000A /* Model.xcdatamodeld in Sources */,
+				3A0000000000000000000010 /* DeckRepository.swift in Sources */,
+				3A0000000000000000000011 /* DeckEditorViewModel.swift in Sources */,
+				3A0000000000000000000012 /* DeckListView.swift in Sources */,
+				3A0000000000000000000013 /* DeckDetailView.swift in Sources */,
+				3A0000000000000000000014 /* CardFormView.swift in Sources */,
+				3A0000000000000000000017 /* ChildRepository.swift in Sources */,
+				3A0000000000000000000018 /* ChildrenViewModel.swift in Sources */,
+				3A0000000000000000000019 /* ChildDetailView.swift in Sources */,
+				3A000000000000000000001A /* ProfilePickerViewModel.swift in Sources */,
+				3A000000000000000000001C /* CoreDataFetch.swift in Sources */,
+				3A000000000000000000001D /* AssignDecksView.swift in Sources */,
+				3A000000000000000000001E /* StudyRepository.swift in Sources */,
+				3A0000000000000000000044 /* RemoteChangeObserver.swift in Sources */,
+				3A0000000000000000000046 /* CloudKitSyncMonitor.swift in Sources */,
+				3A0000000000000000000020 /* CardStateMergePolicy.swift in Sources */,
+				3A0000000000000000000022 /* DashboardRepository.swift in Sources */,
+				3A0000000000000000000023 /* ChildProgressView.swift in Sources */,
+				3A0000000000000000000025 /* SpeechReader.swift in Sources */,
+				3A0000000000000000000026 /* RewardRepository.swift in Sources */,
+				3A0000000000000000000029 /* StarterDeckImporter.swift in Sources */,
+				3A000000000000000000002B /* ReminderScheduler.swift in Sources */,
+				3A000000000000000000002D /* YouTubePlayerView.swift in Sources */,
+				3A000000000000000000002E /* SongReviewViewModels.swift in Sources */,
+				3A000000000000000000002F /* SongPlaylistView.swift in Sources */,
+				3A0000000000000000000030 /* SongReviewView.swift in Sources */,
+				3A000000000000000000003A /* VideoConsent.swift in Sources */,
+				3A000000000000000000003B /* VideoConsentView.swift in Sources */,
+				3A000000000000000000003F /* DyslexiaText.swift in Sources */,
+				3A0000000000000000000031 /* LocalPlayerServer.swift in Sources */,
+				3A0000000000000000000032 /* GameModeViewModel.swift in Sources */,
+				3A0000000000000000000033 /* GameModeView.swift in Sources */,
+				3A0000000000000000000034 /* ImportPlaylistView.swift in Sources */,
+				3A0000000000000000000035 /* RewardCollectionView.swift in Sources */,
+				3A0000000000000000000036 /* SmartSongReviewView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A0000000000000000000011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0000000000000000000015 /* DeckRepositoryTests.swift in Sources */,
+				3A000000000000000000001B /* ChildRepositoryTests.swift in Sources */,
+				3A000000000000000000001F /* StudyRepositoryTests.swift in Sources */,
+				3A0000000000000000000021 /* CardStateMergePolicyTests.swift in Sources */,
+				3A0000000000000000000024 /* DashboardRepositoryTests.swift in Sources */,
+				3A0000000000000000000027 /* RewardRepositoryTests.swift in Sources */,
+				3A000000000000000000002A /* StarterDeckImportTests.swift in Sources */,
+				3A000000000000000000002C /* ReminderPlannerTests.swift in Sources */,
+				3A0000000000000000000039 /* AdultGateStoreTests.swift in Sources */,
+				3A000000000000000000003C /* VideoConsentStoreTests.swift in Sources */,
+				3A000000000000000000003E /* PersistenceControllerTests.swift in Sources */,
+				3A0000000000000000000040 /* DyslexiaFontProviderTests.swift in Sources */,
+				3A0000000000000000000045 /* RemoteChangeObserverTests.swift in Sources */,
+				3A0000000000000000000047 /* CloudKitSyncMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A0000000000000000000013 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A0000000000000000000001 /* KidsSRS */;
+			targetProxy = 4A0000000000000000000014 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5A0000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5A0000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		5A0000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KidsSRS/KidsSRS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3ZL87RZ5ES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KidsSRS/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock the parent area with Face ID.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kidssrs.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A0000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KidsSRS/KidsSRS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3ZL87RZ5ES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KidsSRS/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock the parent area with Face ID.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kidssrs.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5A0000000000000000000008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kidssrs.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsSRS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KidsSRS";
+			};
+			name = Debug;
+		};
+		5A0000000000000000000009 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kidssrs.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsSRS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KidsSRS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A0000000000000000000001 /* Build configuration list for PBXProject "KidsSRS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0000000000000000000003 /* Debug */,
+				5A0000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0000000000000000000002 /* Build configuration list for PBXNativeTarget "KidsSRS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0000000000000000000005 /* Debug */,
+				5A0000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0000000000000000000007 /* Build configuration list for PBXNativeTarget "KidsSRSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0000000000000000000008 /* Debug */,
+				5A0000000000000000000009 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6A0000000000000000000001 /* XCLocalSwiftPackageReference "KidsSRSCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = KidsSRSCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A0000000000000000000002 /* KidsSRSCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KidsSRSCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2A000000000000000000000B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2A000000000000000000000C /* Model.xcdatamodel */,
+			);
+			currentVersion = 2A000000000000000000000C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1A0000000000000000000001 /* Project object */;
+}

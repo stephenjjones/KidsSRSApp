@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Privacy by construction (Spec §12): no tracking, no third-party
+	     analytics/ads SDKs. Child data lives only in the family's own iCloud
+	     (CloudKit private DB) and is never sent to our servers. The Song Review
+	     video feature (§14.1) embeds YouTube in a WKWebView — a third-party data
+	     flow disclosed in-app and gated behind explicit parental consent — but
+	     it is not an SDK we bundle, so it is not declared here. -->
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<!-- We read/write our own settings (adult gate, video consent,
+			     reminders) via UserDefaults: access info from the same app. -->
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

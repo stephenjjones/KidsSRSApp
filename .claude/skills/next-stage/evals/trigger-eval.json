@@ -1,0 +1,23 @@
+[
+  {"query": "ok the deck editor's basically done now — what should I tackle next on KidsSRS?", "should_trigger": true},
+  {"query": "i've got maybe an hour before the kids are up. what's the highest-leverage thing to work on next in the app?", "should_trigger": true},
+  {"query": "should I build the rewards screen now or go sort out the CloudKit sync stuff first?", "should_trigger": true},
+  {"query": "give me a plan for the next few milestones — I want to weigh new features against cleaning up all these TODO(§) stubs", "should_trigger": true},
+  {"query": "is the persistence foundation solid enough that I can start on the parent dashboard, or am I getting ahead of myself?", "should_trigger": true},
+  {"query": "where should I focus this week on KidsSRS?", "should_trigger": true},
+  {"query": "what's the next stage for the project?", "should_trigger": true},
+  {"query": "I keep adding screens but StudyViewModel still runs on fake sample data — how do I prioritize fixing that vs the multi-child stuff the spec wants?", "should_trigger": true},
+  {"query": "lay out a roadmap for KidsSRS that doesn't let tech debt pile up", "should_trigger": true},
+  {"query": "honestly not sure what to do next, features or refactoring? help me sequence it", "should_trigger": true},
+
+  {"query": "implement the roadmap you gave me — start coding Stage 1", "should_trigger": false},
+  {"query": "what's the next card supposed to show after the kid taps reveal in the study flow?", "should_trigger": false},
+  {"query": "add a frontImageRef attribute to the Card entity and migrate the model", "should_trigger": false},
+  {"query": "the build's failing with a duplicate NSManagedObjectModel error — can you fix it?", "should_trigger": false},
+  {"query": "write unit tests for DeckRepository.reorderCards", "should_trigger": false},
+  {"query": "summarize what SPEC.md says about the scheduling algorithm", "should_trigger": false},
+  {"query": "walk me through the stages of the SM-2 algorithm the scheduler uses", "should_trigger": false},
+  {"query": "review my git diff for the card editor and tell me if the code's clean", "should_trigger": false},
+  {"query": "should I use SwiftData or stick with Core Data for this?", "should_trigger": false},
+  {"query": "what new feature would make the app more fun for my 8-year-old?", "should_trigger": false}
+]

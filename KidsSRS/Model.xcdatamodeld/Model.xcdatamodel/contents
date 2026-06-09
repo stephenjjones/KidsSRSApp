@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23000" systemVersion="25F80" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="NO" userDefinedModelVersionIdentifier="">
+    <entity name="Child" representedClassName="ChildMO" syncable="YES" codeGenerationType="class">
+        <attribute name="avatarConfig" optional="YES" attributeType="Binary"/>
+        <attribute name="dailyNewCardLimit" optional="YES" attributeType="Integer 16" defaultValueString="5" usesScalarValueType="YES"/>
+        <attribute name="dailyReviewLimit" optional="YES" attributeType="Integer 16" defaultValueString="40" usesScalarValueType="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String"/>
+        <attribute name="dyslexiaMode" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="pacingProfile" optional="YES" attributeType="String" defaultValueString="normal"/>
+        <attribute name="readAloud" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="reduceMotion" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="reminderEnabled" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="reminderHour" optional="YES" attributeType="Integer 16" defaultValueString="16" usesScalarValueType="YES"/>
+        <attribute name="reminderMinute" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="assignedDecks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Deck" inverseName="assignedChildren" inverseEntity="Deck"/>
+        <relationship name="cardStates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CardState" inverseName="child" inverseEntity="CardState"/>
+        <relationship name="rewardProgress" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="RewardProgress" inverseName="child" inverseEntity="RewardProgress"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SessionLog" inverseName="child" inverseEntity="SessionLog"/>
+    </entity>
+    <entity name="Deck" representedClassName="DeckMO" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="iconConfig" optional="YES" attributeType="String"/>
+        <attribute name="origin" optional="YES" attributeType="String" defaultValueString="parentAuthored"/>
+        <attribute name="subjectTag" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
+        <relationship name="assignedChildren" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Child" inverseName="assignedDecks" inverseEntity="Child"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="deck" inverseEntity="Card"/>
+    </entity>
+    <entity name="Card" representedClassName="CardMO" syncable="YES" codeGenerationType="class">
+        <attribute name="backImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="backText" optional="YES" attributeType="String"/>
+        <attribute name="contentHash" optional="YES" attributeType="String"/>
+        <attribute name="frontImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="frontText" optional="YES" attributeType="String"/>
+        <attribute name="hint" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="kind" optional="YES" attributeType="String" defaultValueString="text"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="videoRef" optional="YES" attributeType="String"/>
+        <relationship name="cardStates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CardState" inverseName="card" inverseEntity="CardState"/>
+        <relationship name="deck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deck" inverseName="cards" inverseEntity="Deck"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="cards" inverseEntity="Tag"/>
+    </entity>
+    <entity name="CardState" representedClassName="CardStateMO" syncable="YES" codeGenerationType="class">
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="easeFactor" optional="YES" attributeType="Double" defaultValueString="2.3" usesScalarValueType="YES"/>
+        <attribute name="intervalDays" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lapses" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastConfidenceFlag" optional="YES" attributeType="String"/>
+        <attribute name="lastReviewedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="learningStepIndex" optional="YES" attributeType="Integer 16" usesScalarValueType="NO"/>
+        <attribute name="repetitions" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" defaultValueString="new"/>
+        <relationship name="card" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="cardStates" inverseEntity="Card"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="cardStates" inverseEntity="Child"/>
+    </entity>
+    <entity name="SessionLog" representedClassName="SessionLogMO" syncable="YES" codeGenerationType="class">
+        <attribute name="cardsCorrect" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cardsSeen" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="newIntroduced" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="sessions" inverseEntity="Child"/>
+    </entity>
+    <entity name="RewardProgress" representedClassName="RewardProgressMO" syncable="YES" codeGenerationType="class">
+        <attribute name="currentMilestoneID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="points" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="unlockedItemIDs" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[NSUUID]"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Child" inverseName="rewardProgress" inverseEntity="Child"/>
+    </entity>
+    <entity name="Tag" representedClassName="TagMO" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Card" inverseName="tags" inverseEntity="Card"/>
+    </entity>
+</model>
