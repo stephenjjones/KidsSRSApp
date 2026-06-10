@@ -190,6 +190,7 @@ struct RewardCollectionView: View {
         .buttonStyle(.plain)
         .disabled(!unlocked)
         .accessibilityLabel(accessibility(item, milestone, unlocked: unlocked, equipped: equipped))
+        .accessibilityAddTraits(equipped ? [.isSelected] : [])
     }
 
     private func accessibility(_ item: RewardItem, _ milestone: RewardMilestone,

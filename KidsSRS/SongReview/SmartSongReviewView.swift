@@ -115,15 +115,19 @@ struct SmartSongReviewView: View {
                 } else {
                     ForEach(model.children) { child in
                         let on = model.selectedIDs.contains(child.id)
+                        let name = child.displayName.isEmpty ? "Unnamed" : child.displayName
                         Button { model.toggle(child.id) } label: {
                             HStack {
-                                Text(child.displayName.isEmpty ? "Unnamed" : child.displayName)
+                                Text(name)
                                 Spacer()
                                 if on { Image(systemName: "checkmark").foregroundStyle(.tint) }
                             }
                             .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
+                        // Name + `.isSelected` trait, so VoiceOver announces
+                        // "<name>, selected" rather than a bare "checkmark" (§11).
+                        .accessibilityLabel(name)
                         .accessibilityAddTraits(on ? [.isSelected] : [])
                     }
                 }

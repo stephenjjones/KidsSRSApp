@@ -109,6 +109,8 @@ struct ImportPlaylistView: View {
                         }
                     }
                     .disabled(!model.canFind)
+                    // Announce the action even while the spinner replaces the text (§11).
+                    .accessibilityLabel(model.phase == .loading ? "Finding playlist" : "Find playlist")
                 } header: {
                     Text("Import from YouTube")
                 } footer: {

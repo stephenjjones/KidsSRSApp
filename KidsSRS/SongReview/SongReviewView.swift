@@ -57,6 +57,10 @@ struct SongReviewView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
+                        // Orient VoiceOver to the player region while keeping the
+                        // embedded player's own controls reachable (Spec §11).
+                        .accessibilityElement(children: .contain)
+                        .accessibilityLabel("Video player")
 
                     Text(song.title.isEmpty ? "Untitled song" : song.title)
                         .font(.title3.bold())

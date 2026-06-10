@@ -57,4 +57,7 @@ items marked ⚠️ need legal/product sign-off before release.
 - [ ] CloudKit schema deployed to **Production** before App Store release (dev env auto-creates on first run).
 - [x] Background Modes → **Remote notifications** enabled for iOS background sync (`UIBackgroundModes` in `KidsSRS/Info.plist`). macOS needs no equivalent — the shared `aps-environment` push entitlement covers it.
 - [ ] On-device QA: notification delivery, biometric unlock, shared-iPad profile switching (§15.11).
-- [ ] Accessibility pass across all surfaces incl. Song Review / Game Mode (§11).
+- [x] Accessibility **code** pass across all surfaces incl. Song Review / Game Mode (§11).
+  - Audited every view: reduce-motion is gated wherever the UI animates (`StudySessionView` celebrations); no state is conveyed by color alone — every grade/selection pairs color with an icon **and** text (`ScoreButton`, Game Mode score buttons); custom controls carry `accessibilityLabel` + `.isSelected` traits; text uses scalable semantic fonts (`.font(.system(size:))` is used only for decorative icons).
+  - Fixes from this pass: labelled the `YouTubePlayerView` region for VoiceOver orientation; `SmartSongReviewView` child toggles announce name + selected trait (not a bare "checkmark"); `ImportPlaylistView` "Find playlist" keeps its label while the spinner shows; `RewardCollectionView` equipped item gains `.isSelected`.
+  - **Remaining (on-device QA, rides with §15.11):** a live VoiceOver walkthrough + Dynamic Type XXXL screenshots on a real device — not verifiable from the simulator/CLI.
