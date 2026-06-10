@@ -11,27 +11,52 @@ final class SongDeckViewModel: ObservableObject {
     @Published var errorMessage: String?
 
     private let repository: DeckRepository
+    private let mfk: MadeForKidsChecking
 
-    init(deck: DeckSummary, repository: DeckRepository = DeckRepository()) {
+    init(deck: DeckSummary, repository: DeckRepository = DeckRepository(),
+         mfk: MadeForKidsChecking = YouTubeDataAPIMadeForKidsChecker()) {
         self.deck = deck
         self.repository = repository
+        self.mfk = mfk
     }
 
     func load() {
         perform { self.songs = try self.repository.fetchSongs(in: self.deck.id) }
     }
 
-    /// Add a song from a pasted title + YouTube URL/ID. An unparseable reference
-    /// surfaces a friendly error (Spec §14.2) rather than failing silently.
-    func addSong(title: String, youTube: String) {
+    /// Add a song from a pasted title + YouTube URL/ID. The video must be
+    /// designated **made for kids** on YouTube (Spec §14.1); anything unparseable
+    /// or not-MFK surfaces a friendly error rather than being added.
+    func addSong(title: String, youTube: String) async {
         let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedRef = youTube.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTitle.isEmpty, !trimmedRef.isEmpty else { return }
+        guard let videoID = YouTubeVideoID.extract(from: trimmedRef) else {
+            errorMessage = "That doesn't look like a YouTube video link."
+            return
+        }
+        let status = await mfk.status(forVideoID: videoID)
+        guard status.isAllowed else {
+            errorMessage = Self.notAllowedMessage(status)
+            return
+        }
         perform {
             try self.repository.addVideoCard(to: self.deck.id, title: trimmedTitle,
                                              youTube: trimmedRef, hint: nil)
         }
         load()
+    }
+
+    /// Why a video was rejected by the made-for-kids gate (Spec §14.1).
+    static func notAllowedMessage(_ status: MadeForKidsStatus) -> String {
+        switch status {
+        case .notMadeForKids:
+            return "Only videos marked “made for kids” on YouTube can be added. This one isn’t."
+        case .unknown:
+            return "We couldn’t confirm this video is “made for kids,” so it can’t be added. Check your connection and try again."
+        case .madeForKids:
+            return ""   // not reached — allowed videos are added
+        }
     }
 
     func deleteSongs(at offsets: IndexSet) {

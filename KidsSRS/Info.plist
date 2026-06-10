@@ -6,5 +6,10 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<!-- YouTube Data API v3 key for the made-for-kids video check (Spec §14.1).
+	     Sourced from the YOUTUBE_DATA_API_KEY build setting so no key is committed;
+	     when unset the check fails closed (no videos can be added). -->
+	<key>YouTubeDataAPIKey</key>
+	<string>$(YOUTUBE_DATA_API_KEY)</string>
 </dict>
 </plist>

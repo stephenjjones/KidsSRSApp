@@ -35,9 +35,29 @@ items marked ⚠️ need legal/product sign-off before release.
   loads). Revocable from Parents → Song Review → Video consent.
   - ⚠️ **The consent *mechanism* is interim.** The grant action is an informed
     acknowledgment, **not** legally-sufficient verifiable parental consent (VPC).
-    A legally-approved verification method must replace it (see the `⚠️ LEGAL`
-    comments in `VideoConsent.swift` / `VideoConsentView.swift`) and be signed
-    off before launch.
+    Kept as a parent-facing notice; see the v1 strategy below.
+
+### v1 VPC strategy: made-for-kids–only embeds (avoid VPC, don't perform it)
+
+Rather than build VPC (which for Apple's Verify-with-Wallet would require a
+backend to decrypt/verify the mDL), v1 keeps embeds inside COPPA's **"support for
+internal operations" exception**: only YouTube videos designated **made for kids**
+may be added, which keeps YouTube in personalized-ads-off / contextual-only mode
+(no behavioral-ad identifier collection → arguably no "collection" requiring VPC).
+
+- Enforced **fail-closed** at add-time on **both** paths — direct add
+  (`SongDeckViewModel.addSong`) and playlist import (`ImportPlaylistViewModel`) —
+  via `MadeForKidsChecker` (YouTube Data API `videos.list?part=status` →
+  `status.madeForKids`). Anything not confirmably MFK (incl. no API key or a
+  network error) is rejected/skipped.
+- **Requires a YouTube Data API key** in the `YOUTUBE_DATA_API_KEY` build setting
+  (read via Info.plist `YouTubeDataAPIKey`; not committed). Until set, the gate
+  fails closed and no videos can be added. Restrict the key to the iOS bundle id.
+- ⚠️ **Still needs legal sign-off.** Confirm with counsel that (a) MFK-only
+  enforcement keeps you in the internal-operations exception, (b) YouTube ToS
+  permits this embedding, and (c) residual data flows stay within "internal
+  operations." If counsel disagrees, fall back to real VPC (Wallet+backend /
+  vendor) or defer video.
 
 ## YouTube ToS (§14.1)
 
@@ -50,7 +70,7 @@ items marked ⚠️ need legal/product sign-off before release.
 - [x] No analytics/ad SDKs bundled.
 - [x] No `NSManagedObject` in views; data behind repositories (§4.1).
 - [x] Graceful handling of a Core Data load failure (no crash, §4).
-- [ ] ⚠️ Verifiable parental consent (VPC) mechanism implemented + legal sign-off (§14.1).
+- [x] v1 video-compliance approach implemented: **made-for-kids–only embeds** (`MadeForKidsChecker`, fail-closed on add + import) to stay in COPPA's internal-operations exception instead of building VPC (§14.1). **Still needs ⚠️ legal sign-off** + a provisioned `YOUTUBE_DATA_API_KEY`.
 - [ ] App Store privacy "nutrition label" filled (discloses iCloud storage + the YouTube data flow).
 - [x] CloudKit container provisioned (`iCloud.com.kidssrs.app`); private-DB sync enabled in code (`PersistenceController.cloudKitContainerIdentifier`). **v1 uses NSPCKC's single managed private zone — per-child zones (§10.2) deferred to v2 sharing** (one family Apple ID needs no per-child isolation; children separated logically by `childID`).
 - [ ] Multi-device sync verified on two **physical** devices (on-device step). Code-side is covered: the §10.3 newest-`lastReviewedAt` conflict resolution has automated end-to-end tests (`CardStateMergePolicyTests` — two contexts racing on one file-backed store, plus a non-`CardState` property-trump fallback case), and CloudKit health is now surfaced in-app at **Parents → iCloud Sync** (backed by `CloudKitSyncMonitor`) so a stalled/failed sync is visible, not silent.

@@ -135,7 +135,7 @@ struct SongDeckView: View {
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 #endif
-            Button("Add") { model.addSong(title: songTitle, youTube: songURL) }
+            Button("Add") { Task { await model.addSong(title: songTitle, youTube: songURL) } }
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("Paste a YouTube video link (or its 11-character ID).")

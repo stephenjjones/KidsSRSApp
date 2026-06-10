@@ -14,13 +14,18 @@ final class ImportPlaylistViewModel: ObservableObject {
     @Published var url = ""
     @Published var name = ""
     @Published private(set) var videos: [YouTubePlaylistParser.Video] = []
+    /// How many playlist videos were dropped because they aren't made for kids.
+    @Published private(set) var excludedCount = 0
     @Published private(set) var phase: Phase = .entry
     @Published var errorMessage: String?
 
     private let decks: DeckRepository
+    private let mfk: MadeForKidsChecking
 
-    init(decks: DeckRepository = DeckRepository()) {
+    init(decks: DeckRepository = DeckRepository(),
+         mfk: MadeForKidsChecking = YouTubeDataAPIMadeForKidsChecker()) {
         self.decks = decks
+        self.mfk = mfk
     }
 
     var canFind: Bool { phase != .loading && YouTubePlaylistID.extract(from: url) != nil }
@@ -36,6 +41,7 @@ final class ImportPlaylistViewModel: ObservableObject {
         }
         phase = .loading
         errorMessage = nil
+        excludedCount = 0
         do {
             let html = try await Self.fetchHTML(playlistID: playlistID)
             let result = YouTubePlaylistParser.parse(html: html)
@@ -44,7 +50,17 @@ final class ImportPlaylistViewModel: ObservableObject {
                 errorMessage = "Couldn't find any videos. Make sure the playlist is public."
                 return
             }
-            videos = result.videos
+            // Keep only made-for-kids videos (Spec §14.1) — fail-closed: anything
+            // we can't confirm is dropped from the import.
+            let statuses = await mfk.statuses(forVideoIDs: result.videos.map(\.id))
+            let allowed = result.videos.filter { statuses[$0.id]?.isAllowed == true }
+            excludedCount = result.videos.count - allowed.count
+            guard !allowed.isEmpty else {
+                phase = .entry
+                errorMessage = "None of these videos are marked “made for kids,” so none can be imported."
+                return
+            }
+            videos = allowed
             name = result.title ?? "Imported playlist"
             phase = .preview
         } catch {
@@ -121,10 +137,16 @@ struct ImportPlaylistView: View {
                     Section("Name") {
                         TextField("Playlist name", text: $model.name)
                     }
-                    Section("\(model.videos.count) \(model.videos.count == 1 ? "song" : "songs")") {
+                    Section {
                         ForEach(model.videos, id: \.id) { video in
                             Label(video.title, systemImage: "music.note")
                                 .lineLimit(1)
+                        }
+                    } header: {
+                        Text("\(model.videos.count) \(model.videos.count == 1 ? "song" : "songs")")
+                    } footer: {
+                        if model.excludedCount > 0 {
+                            Text("\(model.excludedCount) video\(model.excludedCount == 1 ? "" : "s") skipped — not marked “made for kids.”")
                         }
                     }
                 }

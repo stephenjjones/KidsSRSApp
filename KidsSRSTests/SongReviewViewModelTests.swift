@@ -117,23 +117,57 @@ final class SongReviewViewModelTests: XCTestCase {
         XCTAssertNotNil(vm.playerNote)
     }
 
-    // MARK: SongDeckViewModel
+    // MARK: SongDeckViewModel (made-for-kids gate, Spec §14.1)
 
-    func testSongDeckAddAndDelete() throws {
+    func testSongDeckAddsMadeForKidsVideoAndDeletes() async throws {
         let f = try makeFixture()
-        let vm = SongDeckViewModel(deck: f.deck, repository: f.decks)
+        let vm = SongDeckViewModel(deck: f.deck, repository: f.decks,
+                                   mfk: StubMFK(allowed: ["75p-N9YKqNo"]))
         vm.load()
         XCTAssertEqual(vm.songs.count, 2)
 
-        vm.addSong(title: "ABC Song", youTube: "https://youtu.be/75p-N9YKqNo")
+        await vm.addSong(title: "ABC Song", youTube: "https://youtu.be/75p-N9YKqNo")
         XCTAssertEqual(vm.songs.count, 3)
+        XCTAssertNil(vm.errorMessage)
 
         // Empty inputs are a no-op (guarded), not an error.
-        vm.addSong(title: "   ", youTube: "")
+        await vm.addSong(title: "   ", youTube: "")
         XCTAssertEqual(vm.songs.count, 3)
         XCTAssertNil(vm.errorMessage)
 
         vm.deleteSongs(at: IndexSet(integer: 0))
         XCTAssertEqual(vm.songs.count, 2)
+    }
+
+    func testSongDeckRejectsNonMadeForKidsVideo() async throws {
+        let f = try makeFixture()
+        let vm = SongDeckViewModel(deck: f.deck, repository: f.decks,
+                                   mfk: StubMFK(allowed: []))   // nothing is MFK
+        vm.load()
+        await vm.addSong(title: "Not for kids", youTube: "https://youtu.be/dQw4w9WgXcQ")
+        XCTAssertEqual(vm.songs.count, 2, "a non-MFK video must not be added")
+        XCTAssertNotNil(vm.errorMessage)
+    }
+
+    func testSongDeckFailsClosedWhenStatusUnknown() async throws {
+        let f = try makeFixture()
+        let vm = SongDeckViewModel(deck: f.deck, repository: f.decks,
+                                   mfk: StubMFK(allowed: [], fallback: .unknown))
+        vm.load()
+        await vm.addSong(title: "Unverifiable", youTube: "https://youtu.be/dQw4w9WgXcQ")
+        XCTAssertEqual(vm.songs.count, 2, "an unverifiable video must not be added")
+        XCTAssertNotNil(vm.errorMessage)
+    }
+}
+
+/// Test double: allows a fixed set of video ids; everything else gets `fallback`.
+private struct StubMFK: MadeForKidsChecking {
+    var allowed: Set<String>
+    var fallback: MadeForKidsStatus = .notMadeForKids
+    func status(forVideoID id: String) async -> MadeForKidsStatus {
+        allowed.contains(id) ? .madeForKids : fallback
+    }
+    func statuses(forVideoIDs ids: [String]) async -> [String: MadeForKidsStatus] {
+        Dictionary(uniqueKeysWithValues: ids.map { ($0, allowed.contains($0) ? .madeForKids : fallback) })
     }
 }

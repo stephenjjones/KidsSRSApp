@@ -48,6 +48,7 @@
 		3A000000000000000000002C /* ReminderPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002C /* ReminderPlannerTests.swift */; };
 		3A000000000000000000002D /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002D /* YouTubePlayerView.swift */; };
 		3A000000000000000000002E /* SongReviewViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002E /* SongReviewViewModels.swift */; };
+		3A000000000000000000004C /* MadeForKidsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000004C /* MadeForKidsChecker.swift */; };
 		3A000000000000000000002F /* SongPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000002F /* SongPlaylistView.swift */; };
 		3A0000000000000000000030 /* SongReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000030 /* SongReviewView.swift */; };
 		3A0000000000000000000031 /* LocalPlayerServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000031 /* LocalPlayerServer.swift */; };
@@ -73,6 +74,7 @@
 		3A0000000000000000000049 /* StudyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000049 /* StudyViewModelTests.swift */; };
 		3A000000000000000000004A /* GameModeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000004A /* GameModeViewModelTests.swift */; };
 		3A000000000000000000004B /* SongReviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000004B /* SongReviewViewModelTests.swift */; };
+		3A000000000000000000004D /* MadeForKidsCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000004D /* MadeForKidsCheckerTests.swift */; };
 		3A0000000000000000000041 /* OpenDyslexic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000041 /* OpenDyslexic-Regular.otf */; };
 		3A0000000000000000000042 /* OpenDyslexic-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000042 /* OpenDyslexic-Bold.otf */; };
 		3A0000000000000000000043 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000043 /* OFL.txt */; };
@@ -131,6 +133,7 @@
 		2A000000000000000000002C /* ReminderPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPlannerTests.swift; sourceTree = "<group>"; };
 		2A000000000000000000002D /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		2A000000000000000000002E /* SongReviewViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewViewModels.swift; sourceTree = "<group>"; };
+		2A000000000000000000004C /* MadeForKidsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeForKidsChecker.swift; sourceTree = "<group>"; };
 		2A000000000000000000002F /* SongPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlaylistView.swift; sourceTree = "<group>"; };
 		2A0000000000000000000030 /* SongReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewView.swift; sourceTree = "<group>"; };
 		2A0000000000000000000031 /* LocalPlayerServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayerServer.swift; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		2A0000000000000000000049 /* StudyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModelTests.swift; sourceTree = "<group>"; };
 		2A000000000000000000004A /* GameModeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeViewModelTests.swift; sourceTree = "<group>"; };
 		2A000000000000000000004B /* SongReviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewViewModelTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000004D /* MadeForKidsCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeForKidsCheckerTests.swift; sourceTree = "<group>"; };
 		2A0000000000000000000041 /* OpenDyslexic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Regular.otf"; sourceTree = "<group>"; };
 		2A0000000000000000000042 /* OpenDyslexic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Bold.otf"; sourceTree = "<group>"; };
 		2A0000000000000000000043 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 				2A0000000000000000000049 /* StudyViewModelTests.swift */,
 				2A000000000000000000004A /* GameModeViewModelTests.swift */,
 				2A000000000000000000004B /* SongReviewViewModelTests.swift */,
+				2A000000000000000000004D /* MadeForKidsCheckerTests.swift */,
 			);
 			path = KidsSRSTests;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			children = (
 				2A000000000000000000002D /* YouTubePlayerView.swift */,
 				2A000000000000000000002E /* SongReviewViewModels.swift */,
+				2A000000000000000000004C /* MadeForKidsChecker.swift */,
 				2A000000000000000000002F /* SongPlaylistView.swift */,
 				2A0000000000000000000030 /* SongReviewView.swift */,
 				2A000000000000000000003A /* VideoConsent.swift */,
@@ -510,6 +516,7 @@
 				3A000000000000000000002B /* ReminderScheduler.swift in Sources */,
 				3A000000000000000000002D /* YouTubePlayerView.swift in Sources */,
 				3A000000000000000000002E /* SongReviewViewModels.swift in Sources */,
+				3A000000000000000000004C /* MadeForKidsChecker.swift in Sources */,
 				3A000000000000000000002F /* SongPlaylistView.swift in Sources */,
 				3A0000000000000000000030 /* SongReviewView.swift in Sources */,
 				3A000000000000000000003A /* VideoConsent.swift in Sources */,
@@ -545,6 +552,7 @@
 				3A0000000000000000000049 /* StudyViewModelTests.swift in Sources */,
 				3A000000000000000000004A /* GameModeViewModelTests.swift in Sources */,
 				3A000000000000000000004B /* SongReviewViewModelTests.swift in Sources */,
+				3A000000000000000000004D /* MadeForKidsCheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
