@@ -40,6 +40,31 @@ final class CloudKitSyncMonitor: ObservableObject {
     /// value is the quick "sync is unhealthy" check.
     @Published private(set) var lastError: String?
 
+    /// A presentation-ready roll-up of pipeline health for an in-app status row.
+    struct Summary: Equatable {
+        enum State: Equatable { case idle, syncing, healthy, failing }
+        let state: State
+        /// End of the last successful export — the "last synced" time.
+        let lastSyncedAt: Date?
+        let errorDetail: String?
+    }
+
+    /// Collapse the per-phase state into one health summary (Spec §10.1).
+    var summary: Summary {
+        if let lastError {
+            return Summary(state: .failing, lastSyncedAt: lastExport?.endDate, errorDetail: lastError)
+        }
+        if let lastExport {
+            return lastExport.succeeded
+                ? Summary(state: .healthy, lastSyncedAt: lastExport.endDate, errorDetail: nil)
+                : Summary(state: .syncing, lastSyncedAt: nil, errorDetail: nil)
+        }
+        if lastSetup != nil || lastImport != nil {
+            return Summary(state: .syncing, lastSyncedAt: nil, errorDetail: nil)
+        }
+        return Summary(state: .idle, lastSyncedAt: nil, errorDetail: nil)
+    }
+
     private let log = Logger(subsystem: "com.kidssrs.app", category: "CloudKitSync")
     private var cancellable: AnyCancellable?
 

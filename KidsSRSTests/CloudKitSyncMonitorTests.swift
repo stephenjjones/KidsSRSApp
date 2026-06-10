@@ -45,4 +45,37 @@ final class CloudKitSyncMonitorTests: XCTestCase {
         XCTAssertNil(monitor.lastError)
         XCTAssertEqual(monitor.lastImport?.finished, false)
     }
+
+    // MARK: Summary roll-up (drives the parent-zone status row)
+
+    func testSummaryIsIdleBeforeAnyEvent() {
+        let monitor = CloudKitSyncMonitor(center: NotificationCenter())
+        XCTAssertEqual(monitor.summary.state, .idle)
+        XCTAssertNil(monitor.summary.lastSyncedAt)
+    }
+
+    func testSummaryIsHealthyWithSyncTimeAfterExport() {
+        let monitor = CloudKitSyncMonitor(center: NotificationCenter())
+        let end = Date(timeIntervalSince1970: 1_700_000_000)
+        monitor.ingest(Event(kind: .export, finished: true, succeeded: true,
+                             endDate: end, error: nil))
+        XCTAssertEqual(monitor.summary.state, .healthy)
+        XCTAssertEqual(monitor.summary.lastSyncedAt, end)
+        XCTAssertNil(monitor.summary.errorDetail)
+    }
+
+    func testSummaryIsFailingWhenAPhaseErrors() {
+        let monitor = CloudKitSyncMonitor(center: NotificationCenter())
+        monitor.ingest(Event(kind: .export, finished: true, succeeded: false,
+                             endDate: Date(), error: "quota exceeded"))
+        XCTAssertEqual(monitor.summary.state, .failing)
+        XCTAssertEqual(monitor.summary.errorDetail, "export: quota exceeded")
+    }
+
+    func testSummaryIsSyncingAfterSetupBeforeExport() {
+        let monitor = CloudKitSyncMonitor(center: NotificationCenter())
+        monitor.ingest(Event(kind: .setup, finished: true, succeeded: true,
+                             endDate: Date(), error: nil))
+        XCTAssertEqual(monitor.summary.state, .syncing)
+    }
 }

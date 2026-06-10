@@ -70,6 +70,22 @@ final class CardStateMergePolicyTests: XCTestCase {
         XCTAssertEqual(stored.dueDate, h.date(2))
     }
 
+    func testNonCardStateEntityFallsBackToPropertyTrump() throws {
+        let h = try Harness()
+        let id = try h.insertTag(name: "A")
+
+        let obj2 = try h.c2.existingObject(with: id)
+        // c1 writes "B" to the store; c2 then saves "C" from its stale snapshot.
+        let obj1 = try h.c1.existingObject(with: id)
+        obj1.setValue("B", forKey: "name"); try h.c1.save()
+        obj2.setValue("C", forKey: "name"); try h.c2.save()
+
+        // Tag isn't CardState → the base property-object-trump policy applies and
+        // the in-memory writer (c2) wins. The custom CardState rule must not leak
+        // its newest-`lastReviewedAt` logic onto other entities.
+        XCTAssertEqual(try h.readName(id: id), "C")
+    }
+
     // MARK: - Harness: two contexts over one file-backed store
 
     private struct StoredState {
@@ -131,6 +147,23 @@ final class CardStateMergePolicyTests: XCTestCase {
             obj.setValue(lastReviewedAt, forKey: "lastReviewedAt")
             obj.setValue(dueDate, forKey: "dueDate")
             try context.save()
+        }
+
+        /// Insert a non-CardState entity (Tag) in c1, save, return its object id.
+        func insertTag(name: String) throws -> NSManagedObjectID {
+            let tag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: c1)
+            tag.setValue(UUID(), forKey: "id")
+            tag.setValue(name, forKey: "name")
+            try c1.save()
+            return tag.objectID
+        }
+
+        func readName(id: NSManagedObjectID) throws -> String? {
+            let fresh = Harness.makeContext(coordinator)
+            fresh.refreshAllObjects()
+            let obj = try fresh.existingObject(with: id)
+            fresh.refresh(obj, mergeChanges: false)
+            return obj.value(forKey: "name") as? String
         }
 
         /// Read the row from a brand-new context so nothing is served from cache.

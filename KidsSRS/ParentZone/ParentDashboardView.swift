@@ -11,10 +11,16 @@ struct ParentDashboardView: View {
     @State private var newChildName = ""
     @State private var deleteTarget: ChildSummary?
 
+    /// Observes CloudKit sync health for the status row (Spec §10.1). Nil when
+    /// mirroring is off (local-only build / previews) — then no row is shown.
+    private let syncMonitor: CloudKitSyncMonitor?
+
     /// Injected by the caller on the main actor (live store in the app, a
     /// `.sample()` one in previews).
-    init(children: ChildrenViewModel) {
+    init(children: ChildrenViewModel,
+         syncMonitor: CloudKitSyncMonitor? = PersistenceController.shared.syncMonitor) {
         _children = StateObject(wrappedValue: children)
+        self.syncMonitor = syncMonitor
     }
 
     var body: some View {
@@ -57,6 +63,9 @@ struct ParentDashboardView: View {
                     NavigationLink("Lock & passcode") {
                         AdultGateSettingsView()
                     }
+                }
+                if let syncMonitor {
+                    SyncStatusSection(monitor: syncMonitor)
                 }
             }
             .navigationTitle("Parents")
@@ -187,7 +196,79 @@ private struct ChildRow: View {
     }
 }
 
+/// Compact iCloud-sync health row (Spec §10.1) so a parent can see — and a
+/// stalled/failed sync isn't invisible. Color is paired with an icon **and**
+/// text, never on its own (Spec §11).
+private struct SyncStatusSection: View {
+    @ObservedObject var monitor: CloudKitSyncMonitor
+
+    var body: some View {
+        let summary = monitor.summary
+        Section("iCloud Sync") {
+            HStack(spacing: 12) {
+                Image(systemName: icon(summary.state))
+                    .foregroundStyle(tint(summary.state))
+                    .imageScale(.large)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title(summary.state)).font(.headline)
+                    subtitle(summary)
+                }
+            }
+            .padding(.vertical, 2)
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(accessibilityText(summary))
+        }
+    }
+
+    @ViewBuilder
+    private func subtitle(_ s: CloudKitSyncMonitor.Summary) -> some View {
+        if let detail = s.errorDetail {
+            Text(detail).font(.caption).foregroundStyle(.secondary)
+        } else if let date = s.lastSyncedAt {
+            Text("Last synced \(date.formatted(.relative(presentation: .named)))")
+                .font(.subheadline).foregroundStyle(.secondary)
+        } else if s.state == .healthy || s.state == .syncing {
+            Text("Your family's devices stay in sync over iCloud.")
+                .font(.subheadline).foregroundStyle(.secondary)
+        }
+    }
+
+    private func icon(_ s: CloudKitSyncMonitor.Summary.State) -> String {
+        switch s {
+        case .idle:    return "icloud"
+        case .syncing: return "arrow.triangle.2.circlepath"
+        case .healthy: return "checkmark.icloud.fill"
+        case .failing: return "exclamationmark.icloud.fill"
+        }
+    }
+    private func tint(_ s: CloudKitSyncMonitor.Summary.State) -> Color {
+        switch s {
+        case .idle:    return .secondary
+        case .syncing: return .accentColor
+        case .healthy: return .green
+        case .failing: return .orange
+        }
+    }
+    private func title(_ s: CloudKitSyncMonitor.Summary.State) -> String {
+        switch s {
+        case .idle:    return "Waiting to sync"
+        case .syncing: return "Syncing…"
+        case .healthy: return "Sync on"
+        case .failing: return "Sync problem"
+        }
+    }
+    private func accessibilityText(_ s: CloudKitSyncMonitor.Summary) -> String {
+        var parts = ["iCloud sync", title(s.state)]
+        if let detail = s.errorDetail {
+            parts.append(detail)
+        } else if let date = s.lastSyncedAt {
+            parts.append("last synced \(date.formatted(.relative(presentation: .named)))")
+        }
+        return parts.joined(separator: ", ")
+    }
+}
+
 #Preview {
-    ParentDashboardView(children: .sample())
+    ParentDashboardView(children: .sample(), syncMonitor: nil)
         .environmentObject(AppState())
 }

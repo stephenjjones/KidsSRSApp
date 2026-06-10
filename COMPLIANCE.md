@@ -53,7 +53,7 @@ items marked ⚠️ need legal/product sign-off before release.
 - [ ] ⚠️ Verifiable parental consent (VPC) mechanism implemented + legal sign-off (§14.1).
 - [ ] App Store privacy "nutrition label" filled (discloses iCloud storage + the YouTube data flow).
 - [x] CloudKit container provisioned (`iCloud.com.kidssrs.app`); private-DB sync enabled in code (`PersistenceController.cloudKitContainerIdentifier`). **v1 uses NSPCKC's single managed private zone — per-child zones (§10.2) deferred to v2 sharing** (one family Apple ID needs no per-child isolation; children separated logically by `childID`).
-- [ ] Multi-device sync verified on two devices, incl. the §10.3 newest-`lastReviewedAt` conflict case (on-device step).
+- [ ] Multi-device sync verified on two **physical** devices (on-device step). Code-side is covered: the §10.3 newest-`lastReviewedAt` conflict resolution has automated end-to-end tests (`CardStateMergePolicyTests` — two contexts racing on one file-backed store, plus a non-`CardState` property-trump fallback case), and CloudKit health is now surfaced in-app at **Parents → iCloud Sync** (backed by `CloudKitSyncMonitor`) so a stalled/failed sync is visible, not silent.
 - [ ] CloudKit schema deployed to **Production** before App Store release (dev env auto-creates on first run).
 - [x] Background Modes → **Remote notifications** enabled for iOS background sync (`UIBackgroundModes` in `KidsSRS/Info.plist`). macOS needs no equivalent — the shared `aps-environment` push entitlement covers it.
 - [ ] On-device QA: notification delivery, biometric unlock, shared-iPad profile switching (§15.11).
