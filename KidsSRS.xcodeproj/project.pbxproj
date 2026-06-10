@@ -70,6 +70,9 @@
 		3A0000000000000000000045 /* RemoteChangeObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000045 /* RemoteChangeObserverTests.swift */; };
 		3A0000000000000000000046 /* CloudKitSyncMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000046 /* CloudKitSyncMonitor.swift */; };
 		3A0000000000000000000047 /* CloudKitSyncMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000047 /* CloudKitSyncMonitorTests.swift */; };
+		3A0000000000000000000049 /* StudyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000049 /* StudyViewModelTests.swift */; };
+		3A000000000000000000004A /* GameModeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000004A /* GameModeViewModelTests.swift */; };
+		3A000000000000000000004B /* SongReviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000004B /* SongReviewViewModelTests.swift */; };
 		3A0000000000000000000041 /* OpenDyslexic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000041 /* OpenDyslexic-Regular.otf */; };
 		3A0000000000000000000042 /* OpenDyslexic-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000042 /* OpenDyslexic-Bold.otf */; };
 		3A0000000000000000000043 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000043 /* OFL.txt */; };
@@ -150,6 +153,9 @@
 		2A0000000000000000000045 /* RemoteChangeObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteChangeObserverTests.swift; sourceTree = "<group>"; };
 		2A0000000000000000000046 /* CloudKitSyncMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncMonitor.swift; sourceTree = "<group>"; };
 		2A0000000000000000000047 /* CloudKitSyncMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncMonitorTests.swift; sourceTree = "<group>"; };
+		2A0000000000000000000049 /* StudyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModelTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000004A /* GameModeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeViewModelTests.swift; sourceTree = "<group>"; };
+		2A000000000000000000004B /* SongReviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongReviewViewModelTests.swift; sourceTree = "<group>"; };
 		2A0000000000000000000041 /* OpenDyslexic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Regular.otf"; sourceTree = "<group>"; };
 		2A0000000000000000000042 /* OpenDyslexic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenDyslexic-Bold.otf"; sourceTree = "<group>"; };
 		2A0000000000000000000043 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -310,6 +316,9 @@
 				2A0000000000000000000040 /* DyslexiaFontProviderTests.swift */,
 				2A0000000000000000000045 /* RemoteChangeObserverTests.swift */,
 				2A0000000000000000000047 /* CloudKitSyncMonitorTests.swift */,
+				2A0000000000000000000049 /* StudyViewModelTests.swift */,
+				2A000000000000000000004A /* GameModeViewModelTests.swift */,
+				2A000000000000000000004B /* SongReviewViewModelTests.swift */,
 			);
 			path = KidsSRSTests;
 			sourceTree = "<group>";
@@ -533,6 +542,9 @@
 				3A0000000000000000000040 /* DyslexiaFontProviderTests.swift in Sources */,
 				3A0000000000000000000045 /* RemoteChangeObserverTests.swift in Sources */,
 				3A0000000000000000000047 /* CloudKitSyncMonitorTests.swift in Sources */,
+				3A0000000000000000000049 /* StudyViewModelTests.swift in Sources */,
+				3A000000000000000000004A /* GameModeViewModelTests.swift in Sources */,
+				3A000000000000000000004B /* SongReviewViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
