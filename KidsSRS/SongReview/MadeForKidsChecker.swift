@@ -75,8 +75,14 @@ struct YouTubeDataAPIMadeForKidsChecker: MadeForKidsChecking {
             URLQueryItem(name: "key", value: apiKey),
         ]
         guard let url = components.url else { return [:] }
+        var request = URLRequest(url: url)
+        // Lets a Google API key whose "application restriction" is set to this
+        // app's bundle id authorize the request — Google checks this header.
+        if let bundleID = Bundle.main.bundleIdentifier {
+            request.setValue(bundleID, forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        }
         do {
-            let (data, response) = try await session.data(from: url)
+            let (data, response) = try await session.data(for: request)
             guard (response as? HTTPURLResponse)?.statusCode == 200 else { return [:] }
             return Self.parse(responseData: data)
         } catch {

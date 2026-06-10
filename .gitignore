@@ -16,3 +16,6 @@ Package.resolved
 
 # Claude Code (local machine settings only)
 .claude/settings.local.json
+
+# Local secrets (API keys, etc.) — keep the .example template, ignore the real one
+Config/Secrets.xcconfig
