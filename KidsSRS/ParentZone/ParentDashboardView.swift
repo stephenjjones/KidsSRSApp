@@ -35,6 +35,14 @@ struct ParentDashboardView: View {
                     }
                 }
                 Section("Song Review") {
+                    // Direct shortcut to the auto-built "what's due" review (§14.3) —
+                    // otherwise reached via Song playlists. Consent is still enforced
+                    // inside the player (§14.1), so this entry point is safe.
+                    NavigationLink {
+                        SmartSongReviewView(model: SmartSongReviewViewModel())
+                    } label: {
+                        Label("Smart review (what's due)", systemImage: "sparkles")
+                    }
                     // Spec §14.3: parent-led video playlists.
                     NavigationLink("Song playlists") {
                         SongPlaylistView(model: DeckEditorViewModel())
