@@ -11,10 +11,13 @@ import Network
 /// identical page over `http://localhost` (a real origin YouTube accepts for
 /// embedding) makes it play. Verified on the iOS simulator.
 ///
-/// Scaffolding note: this is fine for development/usability testing. A shipping
-/// build must revisit it — a sandboxed app needs the `network.server`
-/// entitlement, and a local server in a Kids-Category-adjacent app warrants
-/// review (or a hosted player page instead).
+/// Shipping note (decision: macOS → **Mac App Store**, so App Sandbox is on):
+/// the sandboxed macOS build grants `com.apple.security.network.server` (this
+/// loopback listener) + `network.client` (the embed's outbound traffic) in
+/// `KidsSRS-macOS.entitlements`. **Verify on a real sandboxed Mac build that the
+/// player still loads** (loopback under sandbox). If App Review rejects an
+/// in-app local server, the fallback is to serve the player page from a hosted
+/// URL — `sync(_:)` only needs the page's origin to change.
 final class LocalPlayerServer {
     static let shared = LocalPlayerServer()
 
